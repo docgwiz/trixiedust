@@ -1,3 +1,5 @@
+" /etc/vim/vimrc
+"
 " $VIMRUNTIME refers to the versioned system directory where Vim stores its
 " system runtime files -- /usr/share/vim/vim<version>.
 "

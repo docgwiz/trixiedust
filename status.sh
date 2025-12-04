@@ -1,3 +1,5 @@
+# ~/.config/sway/status.sh
+
 # status bar config file for sway
 
 # get date

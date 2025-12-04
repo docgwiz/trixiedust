@@ -1,3 +1,5 @@
+# ~/.config/sway/outputs
+
 ### Output configuration
 output eDP-1 mode 2880x1800@59.990Hz scale 2
 

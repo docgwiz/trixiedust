@@ -1,4 +1,5 @@
 #!/bin/bash
+# /usr/local/bin/setmyps1.sh
 
 # \n = new line
 

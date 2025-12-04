@@ -1,4 +1,6 @@
-# Mako configuration file
+# ~/.config/mako/config
+
+## Mako configuration file
 
 # Set maximum number of expired notifications to keep in history
 max-history = 100
