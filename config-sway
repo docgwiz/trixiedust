@@ -66,6 +66,8 @@ default_border pixel 3
 exec /usr/libexec/polkit-mate-authentication-agent-1
 exec mako
 
+exec brightnessctl set 30%
+exec brightnessctl --device 'smc::kbd_backlight' set 30%
 
 
 ### Variables
@@ -358,7 +360,7 @@ bar {
         background $medgray
 
 				# <border> <background> <text>
-        focused_workspace #ffffff $blue #ffffff
+        focused_workspace $medgray $medgray #ffffff
 
 				# <border> <background> <text>
         inactive_workspace $medgray $medgray $gray
