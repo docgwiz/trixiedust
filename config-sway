@@ -5,15 +5,24 @@
 # Read `man 5 sway` for a complete reference.
 
 
-### set XDG_CURRENT_DESKTOP
-include ~/.config/sway/config.d/*
+### include config.d files
+include /etc/sway/config.d/40-sway-background.conf
+include /etc/sway/config.d/50-systemd-user.conf
 
-### Output configuration
+###
+### OUTPUT CONFIG
+###
 include ~/.config/sway/outputs
 
 
-### Background configuration
-#
+### ??? CONFIG ???
+### This file doesn't exist yet
+# include /etc/sway/config-vars.d/*
+
+
+###
+### BACKGROUND CONFIG
+###
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # The output command is commented in Debian,
@@ -23,7 +32,9 @@ include ~/.config/sway/outputs
 # the `sway-backgrounds` package
 
 
-### Window configuration
+###
+### WINDOW CONFIG
+###
 # Add gaps in between all application windows:
 gaps inner 4
 gaps outer 4
@@ -31,9 +42,9 @@ gaps outer 4
 # Configure the default border:
 default_border pixel 3
 
-
-### Input configuration
-#
+###
+### INPUT CONFIG
+###
 # Example configuration:
 #
 #   input "2:14:SynPS/2_Synaptics_TouchPad" {
@@ -47,9 +58,9 @@ default_border pixel 3
 # Read `man 5 sway-input` for more information about this section.
 
 
-
-### Idle configuration
-#
+###
+### IDLE CONFIG
+###
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
 #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
@@ -60,18 +71,18 @@ default_border pixel 3
 # and turn your screens back on when resumed. 
 # It will also lock your screen before your computer goes to sleep.
 
-
-### Autostart
-
+###
+### AUTOSTART
+###
 exec /usr/libexec/polkit-mate-authentication-agent-1
 exec mako
 
 exec brightnessctl set 30%
 exec brightnessctl --device 'smc::kbd_backlight' set 30%
 
-
-### Variables
-
+###
+### SET VARIABLES
+###
 # Set $mod key
 set $mod Mod4 
 #logo key key
@@ -109,12 +120,11 @@ set $pwdmngr 1password
 set $notemngr obsidian
 set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 
-# This file doesn't exist yet
-include /etc/sway/config-vars.d/*
 
 
-
-### Key bindings
+###
+### KEYBINDS: launch and close shortcuts
+###
 # This config schema uses 
 # the $mod/logo key for launching apps
 # the $super/alt/option key for "dangerous" actions like kill or reload
@@ -168,9 +178,10 @@ include /etc/sway/config-vars.d/*
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
-#
-# Moving around:
-#
+
+###
+### KEYBINDS: switch focus
+###
     # Move your focus around with cult-of-vim shortcuts
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -189,9 +200,6 @@ include /etc/sway/config-vars.d/*
 		bindsym $super+Left workspace prev_on_output
 		bindsym $super+Right workspace next_on_output
 
-#
-# Workspaces:
-#
     # Switch to workspace
     bindsym $super+1 workspace number 1
     bindsym $super+2 workspace number 2
@@ -204,7 +212,9 @@ include /etc/sway/config-vars.d/*
     bindsym $super+9 workspace number 9
     bindsym $super+0 workspace number 10
 
-    # Move focused container to workspace
+###
+### KEYBINDS: assign containers to workspaces
+###
     bindsym $super+Shift+1 move container to workspace number 1
     bindsym $super+Shift+2 move container to workspace number 2
     bindsym $super+Shift+3 move container to workspace number 3
@@ -217,18 +227,15 @@ include /etc/sway/config-vars.d/*
     bindsym $super+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
 
+###
+### KEYBINDS: layout and focus:
+### 
     # horizontal split (y-axis)
-    bindsym $super+Shift+y splith 
+    bindsym $super+Shift+h splith 
 
 		# vertical split (x-axis)
-    bindsym $super+Shift+x splitv
+    bindsym $super+Shift+v splitv
 
 		# toggle between horizontal and vertical split
     bindsym $super+Shift+slash layout toggle split
@@ -238,32 +245,36 @@ include /etc/sway/config-vars.d/*
     bindsym $super+Shift+s layout stacking
     bindsym $super+Shift+t layout tabbed
 
-    # Make the current focus fullscreen
-    bindsym $super+Shift+Return fullscreen
+    # Toggle the current focus between fullscreen and tiling mode
+    bindsym $super+Shift+Return fullscreen toggle
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $super+Shift+space floating toggle
+    # Toggle the current focus between floating and tiling mode
+    bindsym $super+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
-    # bindsym $mod+space focus mode_toggle
+    # Moves focus between the floating and tiled areas
+    bindsym $super+Shift+space focus mode_toggle
 
     # Move focus to the parent container
     # bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
+
+
+###
+### SCRATCHPAD
+###
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $super+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
+    bindsym $super+minus scratchpad show
+
+
+###
+### KEYBINDS: resize containers
+###
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -285,9 +296,11 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $super+r mode "resize"
-#
-# Utilities:
-#
+
+
+###
+### KEYBINDS: control utilities
+###
     # Special keys to adjust volume via PulseAudio
     # NOTE: RootBear is using PipeWire PulseAudio
     bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
@@ -307,9 +320,9 @@ bindsym $super+r mode "resize"
     bindsym Print exec grim
 
 
-#
-# Window colors
-#
+###
+### WINDOW COLORS
+###
 # set primary gruvbox colorscheme colors
 # see https://github.com/morhetz/gruvbox-contrib/blob/master/color.table
 
@@ -335,15 +348,26 @@ set $medgray #363636
 # https://thomashunter.name/i3-configurator/
 
 # class                 border  bground text    indicator child_border
-client.focused          $yellow $yellow $fg     $yellow   $yellow
-client.focused_inactive $bg_2   #5F676A $fg     #484E50   #5F676A
-client.unfocused        $bg_2   #282828 #888888 #292D2E   #222222
-client.urgent           #2F343A #CC241D $fg_1   #CC241D   #CC241D
-client.placeholder      #1D2021 #0C0C0C $fg     #000000   #0C0C0C
 
-#
-# Status bar:
-#
+client.focused          $yellow $yellow $fg     $yellow   $yellow
+# the window that has focus
+
+client.focused_inactive $bg_2   #5F676A $fg     #484E50   #5F676A
+# the most-recently focused window within container which is not focused
+
+client.unfocused        $bg_2   #282828 #888888 #292D2E   #222222
+# a window that does not have focus
+
+client.urgent           #2F343A #CC241D $fg_1   #CC241D   #CC241D
+# a window with an urgeny hit--only works for xwayland windows
+
+client.placeholder      #1D2021 #0C0C0C $fg     #000000   #0C0C0C
+# ignored (present for i3 compatibilty)
+
+
+###
+### STATUS BAR
+###
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
@@ -367,7 +391,3 @@ bar {
     }
 }
 
-include /etc/sway/config.d/*
-# This directory contains
-# 40-sway-background.conf
-# 50-systemd-user.conf
