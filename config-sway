@@ -152,6 +152,7 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 
     # Start  terminal
     bindsym $mod+Return exec $term
+		bindsym $mod+t exec $term
 
     # Start file manager
     bindsym $mod+f exec $filemngr
@@ -230,13 +231,11 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 ###
 ### KEYBINDS: layout and focus:
 ### 
-    # NOT WORKING
-		# horizontal split (x-axis)
-    # bindsym $super+x split horizontal 
+		# next new container BESIDE existing container (y-axis split)
+    bindsym $super+y split horizontal 
 
-		# NOT WORKING
-		# vertical split (y-axis)
-    # bindsym $super+y split vertical
+		# next new container BELOW existing container (x-axis split)
+    bindsym $super+x split vertical
 
 		# toggle between horizontal and vertical split
     # also used to return to split layout mode
@@ -258,7 +257,11 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
     bindsym $super+Shift+space focus mode_toggle
 
     # Move focus to the parent container
-    # bindsym $mod+a focus parent
+		# All workspaces, splits, tabbed/stacked groups, and windows
+		# are containers within a hierarchical tree structure.
+		# The container directly above the current container in the tree
+		# is the parent container 
+    bindsym $super+p focus parent
 
 
 ###

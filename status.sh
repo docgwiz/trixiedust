@@ -6,6 +6,14 @@ day_formatted=$(date "+%a")
 date_formatted=$(date "+%d-%b-%Y") 
 time_formatted=$(date "+%H:%M")
 
+# get video_level
+video_level="V=$(brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}')%"
+
+# get mute status
+mute_status=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+if [ "$mute_status" = "yes" ]; then
+  audio_level="A=XX"
+else
 # get audio_level
 # =$(pactl get-sink-volume @DEFAULT_SINK@)
 # get the volume of the default sink, 
@@ -13,10 +21,8 @@ time_formatted=$(date "+%H:%M")
 # followed by a percentage sign, 
 # and finally head -n 1 to get only the first match 
 # (assuming left and right channels have the same volume).
-audio_level=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
-
-# get mute status
-mute_status=$(pactl get-sink-mute @DEFAULT_SINK@)
+  audio_level="A=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)%"
+fi
 
 battery_info=$(cat /sys/class/power_supply/BAT0/status)
 
@@ -27,6 +33,6 @@ linux_info=$(uname -r | cut -d '-' -f1)
 USERNAME=$(whoami)
 
 
-$iconx="\uF0E7"
+$iconx=""
 
-echo $USERNAME "|" "Battery" $battery_info "V__%" $mute_status $iconx "A"$audio_level"% |" $day_formatted $date_formatted  $time_formatted " "
+echo $USERNAME "|" "Battery" $battery_info $iconx $video_level $audio_level "|" $day_formatted $date_formatted  $time_formatted" "
