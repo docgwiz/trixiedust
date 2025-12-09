@@ -101,7 +101,7 @@ set $right l
 set $term foot
 
 # Set file manager
-set $filemngr nautilus
+set $filemngr thunar
 
 # Set alt file manager
 set $altfilemngr dolphin
@@ -121,7 +121,6 @@ set $notemngr obsidian
 set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 
 
-
 ###
 ### KEYBINDS: launch and close apps
 ###
@@ -134,20 +133,30 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 ### KEYBINDS: close windows / close sway
 ###
 
-    # Exit sway (logs you out of your Wayland session)
+    # EXIT sway (logs you out of your Wayland session)
     bindsym $super+q exit
     # bindsym $mod+m exec swaynag -t warning -m 'Exit sway? (This will end your Wayland session.) ' -B 'Yes, exit sway' 'swaymsg exit'
 
-    # Kill focused window
-    # bindsym $mod+w kill
+    # KILL focused window
     bindsym $super+w kill
- 
-    # Reload the configuration file
-    bindsym $super+Shift+r reload
+
+    # RELOAD configuration file
 		bindsym $super+c reload
 
+
 ###
-### KEYBINDS: launch apps
+### KEYBINDS: run apps in terminal
+###
+
+		# run fastfetch 
+		# bindsym $mod+Shift+f exec fastfetch
+
+		# run swaymsg to show tree structure
+    # bindsym $mod+Shift+t swaymsg -t get_tree
+
+
+###
+### KEYBINDS: launch/start apps
 ###
 
     # Start  terminal
@@ -157,9 +166,6 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
     # Start file manager
     bindsym $mod+f exec $filemngr
 
-    # Start alt file manager
-    bindsym $mod+Shift+f exec $altfilemngr
-    
     # Start launcher
     bindsym $mod+space exec $menu
 
@@ -169,62 +175,63 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
     # Start password manager
     bindsym $mod+p exec $pwdmngr
 
-		# launch Obsidian AppImage with a variable that specifies the image location (see above)
+		# launch Obsidian AppImage with variable that specifies image location (see above)
     bindsym $mod+o exec $notemngrPATH
 
 		# launch Obsidian AppImage via script file in /usr/local/bin)
     bindsym $mod+Shift+o exec obsidian.sh
 
+
 ###
 ### KEYBINDS: switch focus
 ###
     # Move your focus around with cult-of-vim shortcuts
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right 
+    bindsym $super+$left focus left
+    bindsym $super+$down focus down
+    bindsym $super+$up focus up
+    bindsym $super+$right focus right 
 
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    bindsym $super+Left focus left
+    bindsym $super+Down focus down
+    bindsym $super+Up focus up
+    bindsym $super+Right focus right
 
     # move to prev/next workspace with $super/alt/option key shortcuts
-		bindsym $super+$left workspace prev_on_output
-		bindsym $super+$right workspace next_on_output
-		bindsym $super+Left workspace prev_on_output
-		bindsym $super+Right workspace next_on_output
-		bindsym $super+$up workspace prev_on_output
-		bindsym $super+$down workspace next_on_output
-		bindsym $super+Up workspace prev_on_output
-		bindsym $super+Down workspace next_on_output
+		bindsym $mod+$left workspace prev_on_output
+		bindsym $mod+$right workspace next_on_output
+		bindsym $mod+Left workspace prev_on_output
+		bindsym $mod+Right workspace next_on_output
+		bindsym $mod+$up workspace prev_on_output
+		bindsym $mod+$down workspace next_on_output
+		bindsym $mod+Up workspace prev_on_output
+		bindsym $mod+Down workspace next_on_output
 
     # Switch to workspace
-    bindsym $super+1 workspace number 1
-    bindsym $super+2 workspace number 2
-    bindsym $super+3 workspace number 3
-    bindsym $super+4 workspace number 4
-    bindsym $super+5 workspace number 5
-    bindsym $super+6 workspace number 6
-    bindsym $super+7 workspace number 7
-    bindsym $super+8 workspace number 8
-    bindsym $super+9 workspace number 9
-    bindsym $super+0 workspace number 10
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
 
 ###
 ### KEYBINDS: assign containers to workspaces
 ###
-    bindsym $super+Shift+1 move container to workspace number 1
-    bindsym $super+Shift+2 move container to workspace number 2
-    bindsym $super+Shift+3 move container to workspace number 3
-    bindsym $super+Shift+4 move container to workspace number 4
-    bindsym $super+Shift+5 move container to workspace number 5
-    bindsym $super+Shift+6 move container to workspace number 6
-    bindsym $super+Shift+7 move container to workspace number 7
-    bindsym $super+Shift+8 move container to workspace number 8
-    bindsym $super+Shift+9 move container to workspace number 9
-    bindsym $super+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
@@ -291,6 +298,7 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 ###
 ### KEYBINDS: resize containers
 ###
+bindsym $super+r mode "resize"
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -311,8 +319,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $super+r mode "resize"
-
 
 ###
 ### KEYBINDS: control utilities
