@@ -75,6 +75,7 @@ default_border pixel 3
 ### AUTOSTART
 ###
 exec /usr/libexec/polkit-mate-authentication-agent-1
+exec waybar
 exec mako
 
 exec brightnessctl set 30%
@@ -140,8 +141,11 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
     # KILL focused window
     bindsym $super+w kill
 
-    # RELOAD configuration file
+    # RELOAD Sway configuration file
 		bindsym $super+c reload
+
+		# RESTART Waybar
+		bindsym $super+Shift+c exec "pkill waybar && waybar"
 
 
 ###
@@ -390,26 +394,7 @@ client.placeholder      #1D2021 #0C0C0C $fg     #000000   #0C0C0C
 ###
 ### STATUS BAR
 ###
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
- 
-    status_command while ~/.config/sway/status.sh; do sleep 1; done
-    
-    font pango:DejaVu Sans Mono 10
+# Now using waybar
+#include ~/.config/sway/bar.conf
 
-    colors {
-        # text color of status bar
-        statusline #ffffff
-
-        #background color of status bar
-        background $medgray
-
-				# <border> <background> <text>
-        focused_workspace $medgray $medgray #ffffff
-
-				# <border> <background> <text>
-        inactive_workspace $medgray $medgray $gray
-    }
-}
 

@@ -17,11 +17,11 @@
 	// Choose the order of the modules
   "modules-left": [
 		"sway/workspaces",
+		"sway/window",
 		"sway/mode"
   ],
   
 	"modules-center": [
-		"sway/window",
 		"clock"
   ],
   
@@ -43,16 +43,16 @@
 		"disable-scroll": true,
     "all-outputs": true,
     "warp-on-scroll": false,
-    "format": "{name}: {icon}"
+    "format": "{name}"
   },
 	
-	"persistent-workspaces": {
-		"1": "[]",
-		"2": "[]",
-		"3": "[]",
-		"4": "[]",
-		"5": "[]"
-  },
+//	"persistent-workspaces": {
+//		"1": "[]",
+//		"2": "[]",
+//		"3": "[]",
+//		"4": "[]",
+//		"5": "[]"
+//  },
 
 	"sway/mode": {
     "format": "{}",
@@ -65,27 +65,28 @@
   },
   
 	"clock": {
-    // "timezone": "America/New_York",
-    "format": "{:L%A %H:%M}",
-		"format-alt": "{:%Y-%m-%d}"
+    "format": "{:%a %d-%b-%y | %H:%M}",
+		"format-alt": "{:%A, %B %d, %Y at %I:%M %p}",
+		"tooltip": false 
   },
   
 	"cpu": {
-    "format": "CPU {usage}%",
-    "tooltip": false
+    "format": "CPU {usage}%"
   },
   
 	"memory": {
-    "format": "mem {}%"
+    "format": "RAM {}%"
   },
   
 	"temperature": {
-    "format": "{temperatureC}°C"
+    "format": "{temperatureC}°C",
+		"tooltip": false
   },
   
 	"backlight": {
     "device": "acpi_video1",
-    "format": "B {percent}%"
+    "format": "B {percent}%",
+		"tooltip": false
   },
   
 	"battery": {
@@ -94,31 +95,29 @@
 			"warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
-    "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    "format-good": "", // An empty format will hide the module
-    "format-full": ""
+    "format": "{capacity}%",
+    "format-full": "{capacity}%",
+    "format-charging": "{capacity}%",
+    "format-plugged": "{capacity}%",
+    "format-alt": "{time}",
+    "format-good": "" // An empty format will hide the module
   },
   
 	"network": {
     // "interface": "wlp2*", 
 		// (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%)",
-    "format-ethernet": "{ipaddr}/{cidr} eth",
-    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-wifi": "{essid} {signalStrength}%",
+    "format-ethernet": "ethernet",
+    "tooltip-format": "{ifname} via {gwaddr}/{cidr} (IPv4) | {ipaddr}/{cidr} (IPv6)",
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "{ifname}"
   },
   
 	"pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "V {volume}% {icon} {format_source}",
-    "format-muted": "{format_source}",
-    "format-source": "{volume}%",
+    "format": "V {volume}%",
+    "format-muted": "V off",
+ //   "format-source": "{format_source}",
 		"on-click": "pauvcontrol"
 	},
    
@@ -129,9 +128,9 @@
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", 
 		"menu-actions": {
 			"shutdown": "systemctl shutdown",
-			"reboot": "systemctl reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
+			"reboot": "systemctl reboot"
+			// "suspend": "systemctl suspend",
+			// "hibernate": "systemctl hibernate"
 		}
   }
 }
