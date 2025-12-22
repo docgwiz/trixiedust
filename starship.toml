@@ -3,31 +3,28 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """\n\n$hostname$localip$username\n\n$directory$character"""
+format = """\n$hostname$localip\n$username\n\n$directory$character"""
 # format = "$all"
 
 # Inserts a blank line between shell prompts
 add_newline = false
 
-[localip]
-ssh_only = false
-style = "inverted purple"
-format = "[:$localipv4 ]($style)"
-disabled = false
-
 [hostname]
 ssh_only = false
-style = "inverted purple"
-format = "[ $hostname]($style)"
+style = "fg:#ffffff bg:#7852a9" # bg royal purple
+format = "[ $hostname ]($style)"
+disabled = false
+
+[localip]
+ssh_only = false
+style = "fg:#ffffff bg:#b284be" #bg african
+format = "[ $localipv4 ]($style)"
 disabled = false
 
 [username]
 show_always = true
-style_user = "fg:#ffffff bg:#6495ed" # cornflower blue bg
-style_root = "fg:ffffff bg:#151b54" # night blue bg
-# style_user = "bold bright-cyan"
-# style_root = "bold white"
-format = "[ $user ]($style)"
+style_user = "fg:#ffffff bg:#6395ee" # bg cornflower blue
+format = "[ \\$ $user ]($style)"
 disabled = false
 
 [directory]
@@ -37,5 +34,5 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [character] 
-success_symbol = "[>](bold bright-green)"
-error_symbol = "[>](bold blink bright-red)"
+success_symbol = "[:](bold blink bright-green)"
+error_symbol = "[:](bold blink bright-red)"
