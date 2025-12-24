@@ -44,15 +44,16 @@ button {
   border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect 
 button:hover {
   background: inherit;
   box-shadow: inset 0 -3px #ffffff;
 }
+*/
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-  background-color: #0000ff;
+  background-color: #123456; /* deep sea blue */
 }
 
 #workspaces button {
@@ -273,13 +274,11 @@ label:focus {
 }
 
 #language {
-  background: #0000cc;
-	min-width: 20px;
+  background-color: transparent;
 }
 
 #keyboard-state {
   background: #00ff00;
-  min-width: 20px;
 }
 
 #keyboard-state > label {

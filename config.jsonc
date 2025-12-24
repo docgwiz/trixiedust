@@ -71,11 +71,11 @@
   },
   
 	"cpu": {
-    "format": "CPU {usage}%"
+    "format": "CPU:{usage}%"
   },
   
 	"memory": {
-    "format": "RAM {}%"
+    "format": "RAM:{}%"
   },
   
 	"temperature": {
@@ -108,15 +108,15 @@
 		// (Optional) To force the use of this interface
     "format-wifi": "{essid} {signalStrength}%",
     "format-ethernet": "ethernet",
-    "tooltip-format": "{ifname} via {gwaddr}/{cidr} (IPv4) | {ipaddr}/{cidr} (IPv6)",
+    "tooltip-format": "{ipaddr}/{cidr} via {gwaddr} (gateway)",
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "Disconnected",
     "format-alt": "{ifname}"
   },
   
 	"pulseaudio": {
-    "format": "V {volume}%",
-    "format-muted": "V off",
+    "format": "V:{volume}%",
+    "format-muted": "V:off",
  //   "format-source": "{format_source}",
 		"on-click": "pauvcontrol"
 	},
