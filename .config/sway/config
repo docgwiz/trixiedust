@@ -50,11 +50,11 @@ set $right l
 set $term foot
 
 # Set file manager
-set $filemngr thunar
+# set $filemngr thunar
 
-# Set application launcher
+# Set application launchers
 set $menu wmenu-run
-  # replace with wofi
+set $menu-alt wofi --show drun
 
 # Set browser
 set $browser firefox-esr
@@ -71,7 +71,8 @@ set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 
 set $NightBlue #151b54
 set $CornflowerBlue #6495ed
-set $DenimBlue #79baec 
+set $DenimBlue #79baec
+set $BlueGray #98afc7 
 #151b54 night blue
 #0000ff blue
 #1e90ff dodger blue
@@ -99,9 +100,9 @@ set $DenimBlue #79baec
 ### --------------------
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
-# The above output command is commented in Debian, which drops 
-# the config file 40-sway-background.conf, which uses the 
-# Sway wallpaper files in the sway-backgrounds package
+# The above output command is commented out in Debian, 
+# which drops the config file 40-sway-background.conf, which 
+# uses the Sway wallpaper files in the sway-backgrounds package
 
 
 ### -----------------
@@ -223,18 +224,26 @@ client.placeholder      #1D2021 #0C0C0C $fg     #000000   #0C0C0C
 
 # swaylock OPTIONS:
 # -f, --daemonize: 
-#		detach from controlling terminal after locking.
-#		this is the default behavior of i3lock.
+#		detach from controlling terminal after locking
+#		this is the default behavior of i3lock
 # -i, --image [[<output>]:]<path>
-#		display the given image, optionally only on the given output. 
+#		display the given image, optionally only on the given output 
 # -c, --color <rrggbb[aa]>
-#		turn the screen into the given color instead of light gray.
+#		turn the screen into the given color (default: light gray/A3A3A3)
+# -F, --show-failed-attempts: show count of failed authentication attempts
 
-# exec swayidle -w \
-#	timeout 300 'swaylock --f --show-failed-attempts --color 000063' \
-#	timeout 600 'swaymsg "output * power off"' \
-#	resume 'swaymsg "output * power on"' \
-#	before-sleep 'swaylock --daemonize --color 000000' timeout 300 'swaylock -i -c 000000' \
+# Example:
+# exec swayidle -w: Starts swayidle with the -w flag, which tells swayidle to wait for swaylock to finish before proceeding
+# timeout 300 'swaylock -f -c 000000': After 300 seconds (5 mins) of inactivity, run swaylock. -f forces it to lock, and -c 000000 sets the background to black
+# timeout 600 'swaymsg "output * dpms off"': After another 300 seconds (total 10 mins), turn off all displays
+# resume 'swaymsg "output * dpms on"': When activity resumes (after locking), turn the displays back on
+# before-sleep 'swaylock -f -c 000000': Immediately lock the screen before the system suspends 
+
+exec swayidle -w \
+	timeout 300 'swaylock --daemonize --color "$NightBlue"' \
+	timeout 600 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock --daemonize --color "$BlueGray"' 
 
 
 ### ------------------
@@ -244,7 +253,6 @@ client.placeholder      #1D2021 #0C0C0C $fg     #000000   #0C0C0C
 # the logo/cmd key for launching apps
 # the alt/option key for "dangerous" actions like kill or reload
 # the alt/option + Shift for utility functions and apps
-
 
 ### ---------------------
 ### Manage windows & Sway
@@ -275,6 +283,7 @@ bindsym $LogoKey+f exec $filemngr
 
 # Start launcher
 bindsym $LogoKey+space exec $menu
+bindsym $LogoKey+Shift+space exec $menu-alt
 
 # Start browser
 bindsym $LogoKey+b exec $browser
