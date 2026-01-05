@@ -34,17 +34,25 @@ include /etc/sway/config.d/50-systemd-user.conf
 ### CONFIGURE VARIABLES
 ### -------------------
 
+### ---------------
+### Assign Mod keys
 # Assign Mod4 (logo/cmd key) to a string variable
 set $LogoKey Mod4
 
-# Ássign Mod1 (alt/option key) to a string variable
+# Assign Mod1 (alt/option key) to a string variable
 set $AltKey Mod1
 
-# Home row direction keys a la cult-of-vim
+
+### --------------------------------------
+### Assign direction keys a la cult-of-vim
 set $left h
 set $down j
 set $up k
 set $right l
+
+
+### --------------------
+### Assign app shortcuts
 
 # Set terminal emulator
 set $term foot
@@ -66,6 +74,31 @@ set $pwdmngr 1password
 set $notemngr obsidian
 set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 
+
+### -------------------------------------- 
+### set primary gruvbox colorscheme colors
+# see https://github.com/morhetz/gruvbox-contrib/blob/master/color.table
+
+set $bg #282828
+set $bg_2 #504945
+set $fg #ebdbb2
+set $fg_1 #FBF1C7
+set $fg_2 #D5C4A1
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $blue_faded #076678
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+# my additions
+set $medgray #363636
+
+
+### ------------------
 ### Set shades of blue
 # https://www.pinterest.com/pin/75-shades-of-blue-blue-hex-codes-color-names-included--75153887526405408/
 
@@ -112,8 +145,8 @@ set $BlueGray #98afc7
 # consider using kanshi to handle different outputs
 
 ### output config for screen on MacBookPro-10-1
-output eDP-1 mode 2880x1800@59.990Hz 
-output eDP-1 scale 2
+# output eDP-1 mode 2880x1800@59.990Hz 
+# output eDP-1 scale 2
 
 ### output config for screen on iMac-9-1
 # output LVDS-1 mode 1920x1200@60.241Hz
@@ -122,8 +155,8 @@ output eDP-1 scale 2
 ### output config for monitors on Geekom or Trigkey 
 # with LG 24" monitor or Viewsonic 27" monitor
 # NOTE: Trigkey has two HDMI outputs
-# output HDMI-A-1 mode 1920x1080@60.000HZ
-# output HDMI-A-1 scale 1
+output HDMI-A-1 mode 1920x1080@60.000HZ
+output HDMI-A-1 scale 1
 # output HDMI-A-2 mode 1920x1080@60.000HZ
 # output HDMI-A-2 scale 1
 
@@ -146,28 +179,6 @@ default_border pixel 3
 ### -----------------------
 ### CONFIGURE WINDOW COLORS
 ### -----------------------
-
-# set primary gruvbox colorscheme colors
-# see https://github.com/morhetz/gruvbox-contrib/blob/master/color.table
-
-set $bg #282828
-set $bg_2 #504945
-set $fg #ebdbb2
-set $fg_1 #FBF1C7
-set $fg_2 #D5C4A1
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $blue_faded #076678
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-
-# my additions
-set $medgray #363636
-
 
 # https://thomashunter.name/i3-configurator/
 
@@ -240,10 +251,10 @@ client.placeholder      #1D2021 #0C0C0C $fg     #000000   #0C0C0C
 # before-sleep 'swaylock -f -c 000000': Immediately lock the screen before the system suspends 
 
 exec swayidle -w \
-	timeout 300 'swaylock --daemonize --color "$NightBlue"' \
+	timeout 300 'swaylock --daemonize --color "$BlueGray"' \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
-	before-sleep 'swaylock --daemonize --color "$BlueGray"' 
+	before-sleep 'swaylock --daemonize --color "$NightBlue"' 
 
 
 ### ------------------
@@ -279,7 +290,6 @@ bindsym $AltKey+Shift+c exec "pkill waybar && waybar"
 ### Access clipboard history
 
 bindsym $LogoKey+v exec clipman pick --tool wofi
-
 
 ### -------------------
 ### Launch / start apps
