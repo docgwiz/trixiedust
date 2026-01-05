@@ -250,25 +250,35 @@ exec swayidle -w \
 ### CONFIGURE KEYBINDS
 ### ------------------
 # This config scheme uses: 
-# the logo/cmd key for launching apps
-# the alt/option key for "dangerous" actions like kill or reload
-# the alt/option + Shift for utility functions and apps
+# the logo/cmd key for app and navigation shortcuts
+# the alt/option key for reloading configs, ...
+
 
 ### ---------------------
-### Manage windows & Sway
+### Exit & Quit
 
 # EXIT sway (logs you out of your Wayland session)
-bindsym $AltKey+q exit
+bindsym $LogoKey+q exit
 # bindsym $mod+m exec swaynag -t warning -m 'Exit sway? (This will end your Wayland session.) ' -B 'Yes, exit sway' 'swaymsg exit'
 
-# KILL focused window
-bindsym $AltKey+w kill
+# KILL focused window (exit app)
+bindsym $LogoKey+w kill
+
+
+### -------------------
+### Reload config files
 
 # RELOAD Sway configuration file
 bindsym $AltKey+c reload
 
 # RESTART Waybar
 bindsym $AltKey+Shift+c exec "pkill waybar && waybar"
+
+
+### -------------------------
+### Access clipboard history
+
+bindsym $LogoKey+v exec clipman pick --tool wofi
 
 
 ### -------------------
@@ -301,54 +311,54 @@ bindsym $LogoKey+Shift+o exec obsidian.sh
 ### ------------
 ### Switch focus
 
-# Move your focus around with cult-of-vim shortcuts
-bindsym $AltKey+$left focus left
-bindsym $AltKey+$down focus down
-bindsym $AltKey+$up focus up
-bindsym $AltKey+$right focus right 
+# Move window focus around with cult-of-vim shortcuts
+bindsym $LogoKey+$left focus left
+bindsym $LogoKey+$down focus down
+bindsym $LogoKey+$up focus up
+bindsym $LogoKey+$right focus right 
 
-# Or use $mod+[up|down|left|right]
-bindsym $AltKey+Left focus left
-bindsym $AltKey+Down focus down
-bindsym $AltKey+Up focus up
-bindsym $AltKey+Right focus right
+# Or use $mod + arrow keys
+bindsym $LogoKey+Left focus left
+bindsym $LogoKey+Down focus down
+bindsym $LogoKey+Up focus up
+bindsym $LogoKey+Right focus right
 
-# move to prev/next workspace with $super/alt/option key shortcuts
-bindsym $LogoKey+$left workspace prev_on_output
-bindsym $LogoKey+$right workspace next_on_output
-bindsym $LogoKey+Left workspace prev_on_output
-bindsym $LogoKey+Right workspace next_on_output
-bindsym $LogoKey+$up workspace prev_on_output
-bindsym $LogoKey+$down workspace next_on_output
-bindsym $LogoKey+Up workspace prev_on_output
-bindsym $LogoKey+Down workspace next_on_output
+# move workspace focus
+bindsym $AltKey+$left workspace prev_on_output
+bindsym $AltKey+$right workspace next_on_output
+bindsym $AltKey+Left workspace prev_on_output
+bindsym $AltKey+Right workspace next_on_output
+bindsym $AltKey+$up workspace prev_on_output
+bindsym $AltKey+$down workspace next_on_output
+bindsym $AltKey+Up workspace prev_on_output
+bindsym $AltKey+Down workspace next_on_output
 
 # Switch to workspace
-bindsym $LogoKey+1 workspace number 1
-bindsym $LogoKey+2 workspace number 2
-bindsym $LogoKey+3 workspace number 3
-bindsym $LogoKey+4 workspace number 4
-bindsym $LogoKey+5 workspace number 5
-bindsym $LogoKey+6 workspace number 6
-bindsym $LogoKey+7 workspace number 7
-bindsym $LogoKey+8 workspace number 8
-bindsym $LogoKey+9 workspace number 9
-bindsym $LogoKey+0 workspace number 10
+bindsym $AltKey+1 workspace number 1
+bindsym $AltKey+2 workspace number 2
+bindsym $AltKey+3 workspace number 3
+bindsym $AltKey+4 workspace number 4
+bindsym $AltKey+5 workspace number 5
+bindsym $AltKey+6 workspace number 6
+bindsym $AltKey+7 workspace number 7
+bindsym $AltKey+8 workspace number 8
+bindsym $AltKey+9 workspace number 9
+bindsym $AltKey+0 workspace number 10
 
 
 ### --------------------------------
 ### Aassign containers to workspaces
 
-bindsym $LogoKey+Shift+1 move container to workspace number 1
-bindsym $LogoKey+Shift+2 move container to workspace number 2
-bindsym $LogoKey+Shift+3 move container to workspace number 3
-bindsym $LogoKey+Shift+4 move container to workspace number 4
-bindsym $LogoKey+Shift+5 move container to workspace number 5
-bindsym $LogoKey+Shift+6 move container to workspace number 6
-bindsym $LogoKey+Shift+7 move container to workspace number 7
-bindsym $LogoKey+Shift+8 move container to workspace number 8
-bindsym $LogoKey+Shift+9 move container to workspace number 9
-bindsym $LogoKey+Shift+0 move container to workspace number 10
+bindsym $AltKey+Shift+1 move container to workspace number 1
+bindsym $AltKey+Shift+2 move container to workspace number 2
+bindsym $AltKey+Shift+3 move container to workspace number 3
+bindsym $AltKey+Shift+4 move container to workspace number 4
+bindsym $AltKey+Shift+5 move container to workspace number 5
+bindsym $AltKey+Shift+6 move container to workspace number 6
+bindsym $AltKey+Shift+7 move container to workspace number 7
+bindsym $AltKey+Shift+8 move container to workspace number 8
+bindsym $AltKey+Shift+9 move container to workspace number 9
+bindsym $AltKey+Shift+0 move container to workspace number 10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 
@@ -419,7 +429,7 @@ floating_modifier $LogoKey normal
 ### -----------------
 ### Resize containers
 
-bindsym $AltKey+r mode "resize"
+bindsym $LogoKey+Shift+r mode "resize"
 mode "resize" {
   # left will shrink the containers width
   # right will grow the containers width
@@ -471,6 +481,7 @@ bindsym Print exec grim
 ### ---------
 ### AUTOSTART
 ### ---------
+exec wl-paste -t text --watch clipman store
 exec /usr/libexec/polkit-mate-authentication-agent-1
 exec waybar
 exec mako
