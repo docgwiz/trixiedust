@@ -1,22 +1,44 @@
 " ~/.config/vim/vimrc
+
+" -----------------------
+" ADJUST THE RUNTIME PATH
 "
-" !!!!! NOTE !!!!!
+" ~/.vim is not in the default runtime path, which prevents
+" anything in ~/.vim (example: vim-plug) from running
+" note: the ^= operator prepends the path specified below
+" to the runtimepath.
+" Note -- I don't have .vim at this time.
+"set runtimepath^=~/.vim
+
+
+" ----------------------------------------
+" ADJUST THE PACK PATH TO RUN VIMPACKAGES
+" Note -- I not using VimPackages; I use vim-plug
+"set packpath+=~/.vim/pack
+"set packpath+=~/.vim/pack/plugins/start
+"set packpath+=~/.vim/pack/plugins/opt
+
+
+" ----------------------------------------
+" NOTE -- USE SUDOEDIT INSTEAD OF SUDO VIM
+"
 " When editing files with sudo vim, vim runs as root and will 
 " look for a root's ~/.vimrc (/root/.vimrc), not the  user's.  
 " If it doesn't find a root user config file, vim will use
 " DEFAULT SETTINGS.
 "
-" Use sudoedit to launch the default editor (e.g., nano or vim)
-" running under your unprivileged (regular) user ID, which allows 
+" Instead of sudo vim, use sudoedit to launch the 
+" default editor (e.g., nano or vim) running under 
+" your unprivileged (regular) user ID, which allows 
 " you to use your personal editor configurations and plugins.
 
 " !!!!! NOTE !!!!!
 " A global configuration file is sourced below.
 " The configuration does not exist on RootBear, 
 " but may exist on other installations. 
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
+" if filereadable("/etc/vim/vimrc.local")
+"   source /etc/vim/vimrc.local
+" endif
 
 " $VIMRUNTIME refers to the versioned system directory
 " where Vim stores its system runtime files: 
@@ -40,8 +62,8 @@ endif
 " let g:skip_defaults_vim = 1
 "
 
-" ---------------
-" DEBIAN SETTINGS
+" -----------------------
+" NOTE -- DEBIAN SETTINGS
 "
 " Debian-specific settings are defined in $VIMRUNTIME/debian.vim 
 " and sourced by the call to :runtime (see below).
@@ -72,6 +94,12 @@ endif
 
 set nocompatible
 
+
+" -----------------------------
+" SET LOCATION OF HISTORY FILE
+set viminfo+=n~/.config/vim/viminfo
+
+
 " -----------
 " LET VIM FLY
 "
@@ -98,9 +126,19 @@ filetype plugin on
 
 " filetype plugin indent on
 
-" ----------------------------
-" USE VIM-PLUG TO LOAD PLUGINS
-call plug#begin('~/.vim/autoload/plug.vim')
+
+" ------------------
+" CONFIGURE VIMWIKIS
+ let g:vimwiki_list = [
+    \ {'path': '~/vimtest-md/', 'syntax': 'markdown', 'ext': '.md'},
+    \ {'path': '~/vimtest-wk/', 'syntax': 'default', 'ext': '.wiki'},
+    \ {'path': '~/vimwiki/', 'syntax': 'default', 'ext': '.wiki'}
+\ ]
+
+
+" ------------------------------
+" USE VIM-PLUG TO MANAGE PLUGINS
+call plug#begin('~/vim-plugged')
 "
 " Declare your plugins here, for example:
 Plug 'vimwiki/vimwiki'
