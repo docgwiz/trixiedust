@@ -74,6 +74,9 @@ set $pwdmngr 1password
 set $notemngr obsidian
 set $notemngrPATH "~/AppImages/Obsidian.AppImage"
 
+# Set sync utility
+set $syncutil syncthing
+
 
 ### -------------------------------------- 
 ### set primary gruvbox colorscheme colors

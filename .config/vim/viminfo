@@ -15,9 +15,9 @@
 
 # Command Line History (newest to oldest):
 :q
-|2,0,1767865854,,"q"
+|2,0,1767867256,,"q"
 :w
-|2,0,1767865692,,"w"
+|2,0,1767867147,,"w"
 :w!
 |2,0,1767865601,,"w!"
 :wq
@@ -71,69 +71,104 @@
 
 # Registers:
 "0	LINE	0
-	set packpath+=~/.vim/pack
-	set packpath+=~/.vim/pack/plugins/start
-	set packpath+=~/.vim/pack/plugins/opt
-|3,0,0,1,3,0,1767802453,"set packpath+=~/.vim/pack","set packpath+=~/.vim/pack/plugins/start","set packpath+=~/.vim/pack/plugins/opt"
+	# Launch Obsidian AppImage via script file in ~/.local/bin)
+	bindsym $LogoKey+Shift+o exec obsidian.sh
+|3,0,0,1,2,0,1767866818,"# Launch Obsidian AppImage via script file in ~/.local/bin)","bindsym $LogoKey+Shift+o exec obsidian.sh"
 ""1	LINE	0
-	**Note:** The // at the end ensures a unique filename is generated within that directory, avoiding name collisions for files with the same name but different paths.
-|3,1,1,1,1,0,1767861247,"**Note:** The // at the end ensures a unique filename is generated within that directory, avoiding name collisions for files with the same name but different paths."
+	# Launch Syncthing GUI
+|3,1,1,1,1,0,1767867139,"# Launch Syncthing GUI"
 "2	LINE	0
-	" by adding these lines to your vimrc:
-|3,0,2,1,1,0,1767861219,"\" by adding these lines to your vimrc:"
+	bindsym $LogoKey+s exec foot -e $syncutil
+|3,0,2,1,1,0,1767867137,"bindsym $LogoKey+s exec foot -e $syncutil"
 "3	LINE	0
-	*Avoid conflicts with swap files:** 
-|3,0,3,1,1,0,1767861186,"*Avoid conflicts with swap files:** "
+	**Note:** The // at the end ensures a unique filename is generated within that directory, avoiding name collisions for files with the same name but different paths.
+|3,0,3,1,1,0,1767861247,"**Note:** The // at the end ensures a unique filename is generated within that directory, avoiding name collisions for files with the same name but different paths."
 "4	LINE	0
-	    \ {'path': '~/vimwiki/', 'syntax': 'default', 'ext': '.wiki'}
-|3,0,4,1,1,0,1767859758,"    \\ {'path': '~/vimwiki/', 'syntax': 'default', 'ext': '.wiki'}"
+	" by adding these lines to your vimrc:
+|3,0,4,1,1,0,1767861219,"\" by adding these lines to your vimrc:"
 "5	LINE	0
-	set packpath+=~home/docgwiz//.vim/pack/plugins/opt
-|3,0,5,1,1,0,1767802655,"set packpath+=~home/docgwiz//.vim/pack/plugins/opt"
+	*Avoid conflicts with swap files:** 
+|3,0,5,1,1,0,1767861186,"*Avoid conflicts with swap files:** "
 "6	LINE	0
-	set packpath+=~/home/docgwiz/.vim/pack/plugins/opt
-|3,0,6,1,1,0,1767802649,"set packpath+=~/home/docgwiz/.vim/pack/plugins/opt"
+	    \ {'path': '~/vimwiki/', 'syntax': 'default', 'ext': '.wiki'}
+|3,0,6,1,1,0,1767859758,"    \\ {'path': '~/vimwiki/', 'syntax': 'default', 'ext': '.wiki'}"
 "7	LINE	0
-	set packpath+=~/home/docgwiz/.vim/pack
-|3,0,7,1,1,0,1767802648,"set packpath+=~/home/docgwiz/.vim/pack"
+	set packpath+=~home/docgwiz//.vim/pack/plugins/opt
+|3,0,7,1,1,0,1767802655,"set packpath+=~home/docgwiz//.vim/pack/plugins/opt"
 "8	LINE	0
-	set runtimepath^=/home/docgwiz/.vim
-|3,0,8,1,1,0,1767802647,"set runtimepath^=/home/docgwiz/.vim"
+	set packpath+=~/home/docgwiz/.vim/pack/plugins/opt
+|3,0,8,1,1,0,1767802649,"set packpath+=~/home/docgwiz/.vim/pack/plugins/opt"
 "9	LINE	0
-	" set runtimepath^=/home/docgwiz/.vim
-|3,0,9,1,1,0,1767802565,"\" set runtimepath^=/home/docgwiz/.vim"
+	set packpath+=~/home/docgwiz/.vim/pack
+|3,0,9,1,1,0,1767802648,"set packpath+=~/home/docgwiz/.vim/pack"
 
 # File marks:
-'0  1  0  ~/syncthing/vimwikis/vimtest-wk/index.wiki
-|4,48,1,0,1767865854,"~/syncthing/vimwikis/vimtest-wk/index.wiki"
-'1  155  0  ~/.config/vim/vimrc
-|4,49,155,0,1767865698,"~/.config/vim/vimrc"
-'2  118  28  ~/.config/vim/vimrc
-|4,50,118,28,1767865604,"~/.config/vim/vimrc"
-'3  118  28  ~/.config/vim/vimrc
-|4,51,118,28,1767865604,"~/.config/vim/vimrc"
-'4  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
-|4,52,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
-'5  133  0  ~/.config/vim/vimrc
-|4,53,133,0,1767862242,"~/.config/vim/vimrc"
-'6  133  0  ~/.config/vim/vimrc
-|4,54,133,0,1767862242,"~/.config/vim/vimrc"
-'7  133  0  ~/.config/vim/vimrc
-|4,55,133,0,1767862242,"~/.config/vim/vimrc"
-'8  133  0  ~/.config/vim/vimrc
-|4,56,133,0,1767862242,"~/.config/vim/vimrc"
-'9  133  0  ~/.config/vim/vimrc
-|4,57,133,0,1767862242,"~/.config/vim/vimrc"
+'0  324  1  ~/.config/sway/config
+|4,48,324,1,1767867256,"~/.config/sway/config"
+'1  142  0  ~/.config/vim/vimrc
+|4,49,142,0,1767866709,"~/.config/vim/vimrc"
+'2  1  0  ~/syncthing/vimwikis/vimtest-wk/index.wiki
+|4,50,1,0,1767865854,"~/syncthing/vimwikis/vimtest-wk/index.wiki"
+'3  155  0  ~/.config/vim/vimrc
+|4,51,155,0,1767865698,"~/.config/vim/vimrc"
+'4  155  0  ~/.config/vim/vimrc
+|4,52,155,0,1767865698,"~/.config/vim/vimrc"
+'5  118  28  ~/.config/vim/vimrc
+|4,53,118,28,1767865604,"~/.config/vim/vimrc"
+'6  118  28  ~/.config/vim/vimrc
+|4,54,118,28,1767865604,"~/.config/vim/vimrc"
+'7  118  28  ~/.config/vim/vimrc
+|4,55,118,28,1767865604,"~/.config/vim/vimrc"
+'8  118  28  ~/.config/vim/vimrc
+|4,56,118,28,1767865604,"~/.config/vim/vimrc"
+'9  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,57,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
 
 # Jumplist (newest first):
+-'  324  1  ~/.config/sway/config
+|4,39,324,1,1767867256,"~/.config/sway/config"
+-'  1  0  ~/.config/sway/config
+|4,39,1,0,1767866720,"~/.config/sway/config"
+-'  142  0  ~/.config/vim/vimrc
+|4,39,142,0,1767866709,"~/.config/vim/vimrc"
+-'  142  0  ~/.config/vim/vimrc
+|4,39,142,0,1767866709,"~/.config/vim/vimrc"
+-'  1  0  ~/.config/vim/vimrc
+|4,39,1,0,1767866649,"~/.config/vim/vimrc"
+-'  1  0  ~/.config/vim/vimrc
+|4,39,1,0,1767866649,"~/.config/vim/vimrc"
 -'  1  0  ~/syncthing/vimwikis/vimtest-wk/index.wiki
 |4,39,1,0,1767865854,"~/syncthing/vimwikis/vimtest-wk/index.wiki"
+-'  1  0  ~/syncthing/vimwikis/vimtest-wk/index.wiki
+|4,39,1,0,1767865854,"~/syncthing/vimwikis/vimtest-wk/index.wiki"
+-'  1  0  ~/syncthing/vimwikis/vimtest-wk/index.wiki
+|4,39,1,0,1767865854,"~/syncthing/vimwikis/vimtest-wk/index.wiki"
+-'  1  0  ~/syncthing/vimwikis/vimtest-wk/index.wiki
+|4,39,1,0,1767865854,"~/syncthing/vimwikis/vimtest-wk/index.wiki"
+-'  1  0  ~/syncthing/vimwikis/vimtest-md/index.md
+|4,39,1,0,1767865851,"~/syncthing/vimwikis/vimtest-md/index.md"
+-'  1  0  ~/syncthing/vimwikis/vimtest-md/index.md
+|4,39,1,0,1767865851,"~/syncthing/vimwikis/vimtest-md/index.md"
+-'  1  0  ~/syncthing/vimwikis/vimtest-md/index.md
+|4,39,1,0,1767865851,"~/syncthing/vimwikis/vimtest-md/index.md"
 -'  1  0  ~/syncthing/vimwikis/vimtest-md/index.md
 |4,39,1,0,1767865851,"~/syncthing/vimwikis/vimtest-md/index.md"
 -'  155  0  ~/.config/vim/vimrc
 |4,39,155,0,1767865698,"~/.config/vim/vimrc"
 -'  155  0  ~/.config/vim/vimrc
 |4,39,155,0,1767865698,"~/.config/vim/vimrc"
+-'  155  0  ~/.config/vim/vimrc
+|4,39,155,0,1767865698,"~/.config/vim/vimrc"
+-'  155  0  ~/.config/vim/vimrc
+|4,39,155,0,1767865698,"~/.config/vim/vimrc"
+-'  155  0  ~/.config/vim/vimrc
+|4,39,155,0,1767865698,"~/.config/vim/vimrc"
+-'  155  0  ~/.config/vim/vimrc
+|4,39,155,0,1767865698,"~/.config/vim/vimrc"
+-'  1  0  ~/.config/vim/vimrc
+|4,39,1,0,1767865608,"~/.config/vim/vimrc"
+-'  1  0  ~/.config/vim/vimrc
+|4,39,1,0,1767865608,"~/.config/vim/vimrc"
 -'  1  0  ~/.config/vim/vimrc
 |4,39,1,0,1767865608,"~/.config/vim/vimrc"
 -'  1  0  ~/.config/vim/vimrc
@@ -146,6 +181,22 @@
 |4,39,118,28,1767865604,"~/.config/vim/vimrc"
 -'  118  28  ~/.config/vim/vimrc
 |4,39,118,28,1767865604,"~/.config/vim/vimrc"
+-'  118  28  ~/.config/vim/vimrc
+|4,39,118,28,1767865604,"~/.config/vim/vimrc"
+-'  118  28  ~/.config/vim/vimrc
+|4,39,118,28,1767865604,"~/.config/vim/vimrc"
+-'  118  28  ~/.config/vim/vimrc
+|4,39,118,28,1767865604,"~/.config/vim/vimrc"
+-'  118  28  ~/.config/vim/vimrc
+|4,39,118,28,1767865604,"~/.config/vim/vimrc"
+-'  118  28  ~/.config/vim/vimrc
+|4,39,118,28,1767865604,"~/.config/vim/vimrc"
+-'  118  28  ~/.config/vim/vimrc
+|4,39,118,28,1767865604,"~/.config/vim/vimrc"
+-'  1  0  ~/.config/vim/vimrc
+|4,39,1,0,1767864868,"~/.config/vim/vimrc"
+-'  1  0  ~/.config/vim/vimrc
+|4,39,1,0,1767864868,"~/.config/vim/vimrc"
 -'  1  0  ~/.config/vim/vimrc
 |4,39,1,0,1767864868,"~/.config/vim/vimrc"
 -'  1  0  ~/.config/vim/vimrc
@@ -166,6 +217,54 @@
 |4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
 -'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
 |4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
+-'  1  0  ~/vimwikis-sync/vimtest-wk/index.wiki
+|4,39,1,0,1767862410,"~/vimwikis-sync/vimtest-wk/index.wiki"
 -'  1  0  ~/vimwikis-sync/vimtest-md/index.md
 |4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
 -'  1  0  ~/vimwikis-sync/vimtest-md/index.md
@@ -182,164 +281,64 @@
 |4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
 -'  1  0  ~/vimwikis-sync/vimtest-md/index.md
 |4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
--'  127  0  ~/.config/vim/vimrc
-|4,39,127,0,1767862398,"~/.config/vim/vimrc"
--'  127  0  ~/.config/vim/vimrc
-|4,39,127,0,1767862398,"~/.config/vim/vimrc"
--'  127  0  ~/.config/vim/vimrc
-|4,39,127,0,1767862398,"~/.config/vim/vimrc"
--'  127  0  ~/.config/vim/vimrc
-|4,39,127,0,1767862398,"~/.config/vim/vimrc"
--'  127  0  ~/.config/vim/vimrc
-|4,39,127,0,1767862398,"~/.config/vim/vimrc"
--'  127  0  ~/.config/vim/vimrc
-|4,39,127,0,1767862398,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862360,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862360,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  133  0  ~/.config/vim/vimrc
-|4,39,133,0,1767862242,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862198,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862198,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862198,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862198,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862198,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862198,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862198,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862198,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  82  0  ~/.config/vim/vimrc
-|4,39,82,0,1767862196,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862130,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862130,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862130,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862130,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862130,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862130,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862130,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862130,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862128,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862128,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862128,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862128,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862128,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862128,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862128,"~/.config/vim/vimrc"
--'  1  0  ~/.config/vim/vimrc
-|4,39,1,0,1767862128,"~/.config/vim/vimrc"
--'  148  0  ~/.config/vim/vimrc
-|4,39,148,0,1767861374,"~/.config/vim/vimrc"
--'  148  0  ~/.config/vim/vimrc
-|4,39,148,0,1767861374,"~/.config/vim/vimrc"
--'  148  0  ~/.config/vim/vimrc
-|4,39,148,0,1767861374,"~/.config/vim/vimrc"
--'  148  0  ~/.config/vim/vimrc
-|4,39,148,0,1767861374,"~/.config/vim/vimrc"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
+-'  1  0  ~/vimwikis-sync/vimtest-md/index.md
+|4,39,1,0,1767862407,"~/vimwikis-sync/vimtest-md/index.md"
 
 # History of marks within files (newest to oldest):
 
-> ~/syncthing/vimwikis/vimtest-wk/index.wiki
-	*	1767865851	0
-	"	1	0
-
-> ~/syncthing/vimwikis/vimtest-md/index.md
-	*	1767865844	0
-	"	1	0
+> ~/.config/sway/config
+	*	1767867154	0
+	"	324	1
+	.	323	0
+	+	79	0
+	+	323	22
+	+	323	0
 
 > ~/.config/vim/vimrc
-	*	1767865692	0
-	"	155	0
+	*	1767866667	0
+	"	142	0
 	^	155	0
 	.	153	24
 	+	24	1
@@ -442,6 +441,14 @@
 	+	119	28
 	+	152	33
 	+	153	24
+
+> ~/syncthing/vimwikis/vimtest-wk/index.wiki
+	*	1767865851	0
+	"	1	0
+
+> ~/syncthing/vimwikis/vimtest-md/index.md
+	*	1767865844	0
+	"	1	0
 
 > ~/vimwikis-sync/vimtest-wk/index.wiki
 	*	1767862407	0
